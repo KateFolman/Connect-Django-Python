@@ -1,11 +1,17 @@
 {% extends 'orders/base.html' %}
 
 {% block title %}
-Main page
+{{ title }}
 {% endblock %}
 
 {% block content %}
     <h2>Buy what you need</h2>
-    <p>Just for your relax</p>
+    {% for el in order %}
+        <div class = 'alert alert-warning mt-2'>
+            <h3>{{ el.order }}</h3>
+            <h2>{{ el.amount }}</h2>
+            <h2>{{ el.price }}</h2>
+        </div>
+    {% endfor %}
 {% endblock %}
 

@@ -1,9 +1,10 @@
-from django.http import HttpResponse
+from .models import OrderDetail
 from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'orders/index.html')
+    orderss = OrderDetail.objects.all()
+    return render(request, 'orders/index.html', {'title': 'Главная страница сайта', 'order' : orderss})
 
 
 def orders(request):
